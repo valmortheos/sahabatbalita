@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker Imunisasi - Sahabat Balita</title>
+    
+    <!-- Google Fonts & Global CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="imunisasi.css">
+</head>
+<body>
+    <div class="background-texture">
+        <header class="main-header glass-morphism">
+		<div class="header-content">
+        		<a href="dashboard.html" class="logo-container">
+            			<img src="https://i.imgur.com/UzYjB54.png" alt="Logo Sahabat Balita" class="logo">
+            			<span>Sahabat Balita</span>
+        		</a>
+        		<nav class="main-nav">
+            			<ul>
+                			<li><a href="dashboard.html">Dashboard</a></li>
+                			<li><a href="profil.html">Profil Anak</a></li>
+               				<li><a href="perkembangan.html">Pertumbuhan</a></li>
+                			<li><a href="imunisasi.html">Imunisasi</a></li>
+                			<li><a href="panduan.html">Panduan</a></li>
+                			<li><a href="konsultasi.html">Konsultasi</a></li>
+            			</ul>
+        		</nav>
+        		<div class="header-right">
+            			<a href="bita.html" class="bita-link">
+                <span>Bita (AI)</span>
+            			</a>
+            			<img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Profil" class="profile-pic">
+            			<button id="hamburger-btn" class="hamburger-btn">
+                			<span></span>
+                			<span></span>
+                			<span></span>
+            			</button>
+        		</div>
+    		</div>
+		<!-- Menu Mobile -->
+    		<div id="mobile-nav" class="mobile-nav">
+        		<a href="dashboard.html">Dashboard</a>
+        		<a href="profil.html">Profil Anak</a>
+        		<a href="perkembangan.html">Pertumbuhan</a>
+        		<a href="imunisasi.html">Imunisasi</a>
+        		<a href="panduan.html">Panduan</a>
+        		<a href="konsultasi.html">Konsultasi</a>
+        		<a href="bita.html" class="bita-mobile-link">Tanya Bita (AI)</a>
+    		</div>
+	</header>
+        <main class="immunization-main">
+            <div class="page-header">
+                <h1>Tracker Imunisasi Cerdas</h1>
+                <div class="child-info-tag glass-morphism">
+                    Profil untuk: <strong>Arka Putra</strong> (Lahir: 1 Mei 2023)
+                </div>
+            </div>
+
+            <div class="immunization-content glass-morphism">
+                <div class="legend">
+                    <span class="legend-item"><span class="indicator completed"></span> Terlaksana</span>
+                    <span class="legend-item"><span class="indicator upcoming"></span> Mendatang</span>
+                    <span class="legend-item"><span class="indicator missed"></span> Terlewat</span>
+                </div>
+                
+                <div class="table-container">
+                    <table class="immunization-table">
+                        <thead>
+                            <tr>
+                                <th>Usia</th>
+                                <th>Vaksin</th>
+                                <th>Jadwal</th>
+                                <th>Status</th>
+                                <th>Tindakan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-body">
+                            <!-- Konten jadwal akan dibuat oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2024 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="imunisasi.js"></script>
+</body>
+</html>

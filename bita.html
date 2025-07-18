@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asisten AI Bita - Sahabat Balita</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bita.css">
+</head>
+<body>
+    <div class="background-texture">
+        <!-- Header (Tidak Diubah) -->
+        <header class="main-header glass-morphism">
+            <div class="header-content">
+                <a href="dashboard.html" class="logo-container">
+                    <img src="https://i.imgur.com/UzYjB54.png" alt="Logo Sahabat Balita" class="logo">
+                    <span>Sahabat Balita</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                         <li><a href="dashboard.html">Dashboard</a></li>
+                         <li><a href="profil.html">Profil Anak</a></li>
+                         <li><a href="perkembangan.html">Pertumbuhan</a></li>
+                         <li><a href="imunisasi.html">Imunisasi</a></li>
+                         <li><a href="panduan.html">Panduan</a></li>
+                         <li><a href="konsultasi.html">Konsultasi</a></li>
+                    </ul>
+                </nav>
+                 <div class="header-right">
+                    <a href="bita.html" class="bita-link" style="font-weight: 600; color: var(--accent-boy);">
+                        <span>Bita (AI)</span>
+                    </a>
+                    <img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Profil" class="profile-pic">
+                    <button id="hamburger-btn" class="hamburger-btn">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+             <div id="mobile-nav" class="mobile-nav">
+                <a href="dashboard.html">Dashboard</a><a href="profil.html">Profil Anak</a><a href="perkembangan.html">Pertumbuhan</a><a href="imunisasi.html">Imunisasi</a><a href="panduan.html">Panduan</a><a href="konsultasi.html">Konsultasi</a><a href="bita.html" class="bita-mobile-link">Bita (AI)</a>
+            </div>
+        </header>
+
+        <main class="development-main">
+            <div id="chat-container" class="glass-morphism">
+                <div id="chat-header">
+                    <img src="https://i.imgur.com/gA3QY2j.png" alt="Logo Bita AI">
+                    <h3>Bita AI Assistant</h3>
+                </div>
+                <div id="chat-box">
+                    <!-- Pesan chat akan muncul di sini -->
+                </div>
+                <!-- PERUBAHAN: Penampung untuk input area -->
+                <div id="input-area">
+                    <!-- PERUBAHAN: Container untuk preview gambar -->
+                    <div id="image-preview-container"></div>
+                    <div id="input-container">
+                        <!-- PERUBAHAN: Tombol Upload -->
+                        <input type="file" id="file-input" hidden accept="image/*">
+                        <button id="upload-btn" aria-label="Upload Gambar">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                        </button>
+                        <input type="text" id="user-input" placeholder="Tanya Bita atau upload gambar...">
+                        <button id="send-btn" aria-label="Kirim Pesan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer (Tidak Diubah) -->
+        <footer class="main-footer">
+            <p>© 2024 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+
+    <script>
+        // === Logika untuk Hamburger Menu (dari script.js) ===
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (hamburgerBtn && mobileNav) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    
+        // === Logika untuk Chatbot (DIPERBARUI) ===
+        const API_KEY = "AIzaSyDpco__1r2jfhtX0QtP0b9JAJb6mOi2euA";
+        const MODEL_NAME = "gemini-1.5-flash";
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
+    
+        // Elemen DOM untuk Chat
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        
+        // Elemen DOM untuk Upload File
+        const uploadBtn = document.getElementById('upload-btn');
+        const fileInput = document.getElementById('file-input');
+        const imagePreviewContainer = document.getElementById('image-preview-container');
+        
+        let currentFileData = null; // Variabel untuk menyimpan data file base64
+
+        // --- Fungsi-fungsi ---
+
+        /** Menampilkan pratinjau gambar dan tombol hapus */
+        const displayImagePreview = (file) => {
+            currentFileData = null; // Reset dulu
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                // Simpan data file untuk dikirim ke API
+                currentFileData = {
+                    base64: reader.result.split(',')[1], // Ambil data base64 murni
+                    mimeType: file.type,
+                    fullDataUrl: reader.result // Untuk ditampilkan di preview
+                };
+
+                // Tampilkan preview di UI
+                imagePreviewContainer.innerHTML = `
+                    <img src="${reader.result}" alt="Pratinjau Gambar">
+                    <button id="remove-image-btn">×</button>
+                `;
+                imagePreviewContainer.style.display = 'block';
+                
+                // Tambahkan event listener ke tombol hapus
+                document.getElementById('remove-image-btn').addEventListener('click', removeImagePreview);
+            };
+            reader.readAsDataURL(file);
+        };
+
+        /** Menghapus pratinjau gambar */
+        const removeImagePreview = () => {
+            currentFileData = null;
+            fileInput.value = ''; // Hapus file dari input
+            imagePreviewContainer.style.display = 'none';
+            imagePreviewContainer.innerHTML = '';
+        };
+        
+        /** Menambahkan pesan ke UI (chat bubble) */
+        const addMessage = (text, sender, fileData = null) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            
+            let content = text.replace(/\n/g, '<br>');
+
+            // Jika ada gambar, tambahkan ke bubble chat
+            if (fileData) {
+                content += `<br><img src="${fileData.fullDataUrl}" class="sent-image" alt="">`;
+            }
+
+            messageElement.innerHTML = content;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            return messageElement;
+        };
+    
+        /** Mengirim prompt (teks dan/atau gambar) ke Gemini API */
+        const getGeminiResponse = async (prompt, fileData) => {
+            const thinkingMessage = addMessage('Bita sedang mengetik...', 'bita', 'thinking');
+            
+            // PERUBAHAN: Persona menyapa "Bu"
+            const contextualPrompt = `
+                Anda adalah "Bita", asisten AI ramah dari aplikasi "Sahabat Balita".
+                Sapa pengguna dengan "Bu". Contoh: "Tentu, Bu, saya akan bantu cek."
+                Tugas Anda adalah menjawab pertanyaan seputar kesehatan ibu dan anak balita dalam Bahasa Indonesia, berdasarkan Buku KIA.
+                Jika ada gambar, analisis gambar tersebut dalam konteks pertanyaan. Contoh: jika ada gambar ruam dan pertanyaan "ini kenapa ya?", jelaskan kemungkinan penyebab ruam pada balita.
+                Jika pertanyaan di luar topik, tolak dengan sopan. Jawablah dengan ringkas dan jelas.
+                Pertanyaan pengguna: "${prompt}"
+            `;
+            
+            // Siapkan "parts" untuk API request
+            const parts = [{ text: contextualPrompt }];
+            if (fileData) {
+                parts.push({
+                    inlineData: {
+                        mimeType: fileData.mimeType,
+                        data: fileData.base64
+                    }
+                });
+            }
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts }] }),
+                });
+    
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error.message || `HTTP error! Status: ${response.status}`);
+                }
+    
+                const data = await response.json();
+                thinkingMessage.remove();
+    
+                if (data.candidates && data.candidates[0].content) {
+                    const botResponse = data.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bita');
+                } else {
+                    addMessage('Maaf, Bita tidak dapat memberikan respons saat ini. Kemungkinan karena filter keamanan.', 'bita', 'error');
+                }
+    
+            } catch (error) {
+                console.error('Gemini API Error:', error);
+                thinkingMessage.textContent = `Error: Gagal menghubungi Bita. (${error.message})`;
+                thinkingMessage.classList.remove('thinking');
+                thinkingMessage.classList.add('error');
+            }
+        };
+    
+        /** Menangani event pengiriman pesan */
+        const handleSendMessage = () => {
+            const messageText = userInput.value.trim();
+            if (messageText === '' && !currentFileData) return; // Jangan kirim jika kosong
+    
+            const fileToSend = currentFileData; // Simpan file yang akan dikirim
+
+            addMessage(messageText, 'user', fileToSend); // Tampilkan pesan pengguna di UI
+            getGeminiResponse(messageText, fileToSend); // Kirim ke AI
+            
+            // Reset input setelah dikirim
+            removeImagePreview();
+            userInput.value = '';
+            userInput.focus();
+        };
+
+        // --- Event Listeners ---
+        sendBtn.addEventListener('click', handleSendMessage);
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') handleSendMessage();
+        });
+        
+        // Event listener untuk tombol upload
+        uploadBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) displayImagePreview(file);
+        });
+
+        // Pesan sambutan awal
+        setTimeout(() => {
+            addMessage('Halo Bu, saya Bita. Ada yang bisa saya bantu seputar kesehatan si kecil? Ibu bisa bertanya atau mengirimkan gambar.', 'bita');
+        }, 500);
+
+    </script>
+</body>
+</html>

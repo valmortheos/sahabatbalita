@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Tumbuh Kembang - Sahabat Balita</title>
+    
+    <!-- Google Fonts & Global CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="panduan.css">
+</head>
+<body>
+    <div class="background-texture">
+        <header class="main-header glass-morphism">
+		<div class="header-content">
+        		<a href="dashboard.html" class="logo-container">
+            			<img src="https://i.imgur.com/UzYjB54.png" alt="Logo Sahabat Balita" class="logo">
+            			<span>Sahabat Balita</span>
+        		</a>
+        		<nav class="main-nav">
+            			<ul>
+                			<li><a href="dashboard.html">Dashboard</a></li>
+                			<li><a href="profil.html">Profil Anak</a></li>
+               				<li><a href="perkembangan.html">Pertumbuhan</a></li>
+                			<li><a href="imunisasi.html">Imunisasi</a></li>
+                			<li><a href="panduan.html">Panduan</a></li>
+                			<li><a href="konsultasi.html">Konsultasi</a></li>
+            			</ul>
+        		</nav>
+        		<div class="header-right">
+            			<a href="bita.html" class="bita-link">
+                <span>Bita (AI)</span>
+            			</a>
+            			<img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Profil" class="profile-pic">
+            			<button id="hamburger-btn" class="hamburger-btn">
+                			<span></span>
+                			<span></span>
+                			<span></span>
+            			</button>
+        		</div>
+    		</div>
+		<!-- Menu Mobile -->
+    		<div id="mobile-nav" class="mobile-nav">
+        		<a href="dashboard.html">Dashboard</a>
+        		<a href="profil.html">Profil Anak</a>
+        		<a href="perkembangan.html">Pertumbuhan</a>
+        		<a href="imunisasi.html">Imunisasi</a>
+        		<a href="panduan.html">Panduan</a>
+        		<a href="konsultasi.html">Konsultasi</a>
+        		<a href="bita.html" class="bita-mobile-link">Tanya Bita (AI)</a>
+    		</div>
+	</header>
+
+        <main class="guide-main">
+            <div class="page-header">
+                <h1>Ensiklopedia Digital Sahabat Balita</h1>
+                <p>Temukan informasi valid seputar tumbuh kembang, nutrisi, dan kesehatan anak.</p>
+            </div>
+
+            <!-- Fitur Pencarian & Filter -->
+            <div class="search-filter-container glass-morphism">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Cari topik (mis: 'MPASI', 'demam', 'stimulasi')...">
+                </div>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">Semua</button>
+                    <button class="filter-btn" data-category="nutrisi">Nutrisi & Gizi</button>
+                    <button class="filter-btn" data-category="stimulasi">Stimulasi</button>
+                    <button class="filter-btn" data-category="kesehatan">Kesehatan</button>
+                </div>
+            </div>
+
+            <!-- Kontainer Artikel -->
+            <div id="articles-container" class="articles-grid">
+                <!-- Kartu artikel akan dibuat oleh JavaScript -->
+            </div>
+            <div id="not-found" class="not-found-message" style="display: none;">
+                <p>Maaf, artikel yang Anda cari tidak ditemukan.</p>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2024 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="panduan.js"></script>
+</body>
+</html>

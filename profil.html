@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Anak - Sahabat Balita</title>
+    
+    <!-- Google Fonts & Global CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+    <div class="background-texture">
+        <header class="main-header glass-morphism">
+		<div class="header-content">
+        		<a href="dashboard.html" class="logo-container">
+            			<img src="https://i.imgur.com/UzYjB54.png" alt="Logo Sahabat Balita" class="logo">
+            			<span>Sahabat Balita</span>
+        		</a>
+        		<nav class="main-nav">
+            			<ul>
+                			<li><a href="dashboard.html">Dashboard</a></li>
+                			<li><a href="profil.html">Profil Anak</a></li>
+               				<li><a href="perkembangan.html">Pertumbuhan</a></li>
+                			<li><a href="imunisasi.html">Imunisasi</a></li>
+                			<li><a href="panduan.html">Panduan</a></li>
+                			<li><a href="konsultasi.html">Konsultasi</a></li>
+            			</ul>
+        		</nav>
+        		<div class="header-right">
+            			<a href="bita.html" class="bita-link">
+                <span>Bita (AI)</span>
+            			</a>
+            			<img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Profil" class="profile-pic">
+            			<button id="hamburger-btn" class="hamburger-btn">
+                			<span></span>
+                			<span></span>
+                			<span></span>
+            			</button>
+        		</div>
+    		</div>
+		<!-- Menu Mobile -->
+    		<div id="mobile-nav" class="mobile-nav">
+        		<a href="dashboard.html">Dashboard</a>
+        		<a href="profil.html">Profil Anak</a>
+        		<a href="perkembangan.html">Pertumbuhan</a>
+        		<a href="imunisasi.html">Imunisasi</a>
+        		<a href="panduan.html">Panduan</a>
+        		<a href="konsultasi.html">Konsultasi</a>
+        		<a href="bita.html" class="bita-mobile-link">Tanya Bita (AI)</a>
+    		</div>
+	</header>
+
+        <!-- Main Content (tidak berubah) -->
+        <main class="profile-main">
+            <div class="profile-header-title">
+                <h1>Profil Digital Lengkap</h1>
+                <div>
+                    <button id="editBtn" class="action-btn">Edit Data</button>
+                    <button id="qrBtn" class="action-btn secondary">Tampilkan QR</button>
+                </div>
+            </div>
+            <!-- Semua section profile card... -->
+            <section class="profile-card glass-morphism">
+                <div class="card-header">
+                    <img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Anak" class="child-photo-large">
+                    <h2>Identitas Anak</h2>
+                </div>
+                <div class="data-grid">
+                    <div class="data-item"><span class="data-label">Nama Lengkap</span><span class="data-value">Arka Putra</span></div>
+                    <div class="data-item"><span class="data-label">Jenis Kelamin</span><span class="data-value">Laki-laki</span></div>
+                    <div class="data-item"><span class="data-label">Nomor Induk Kependudukan (NIK)</span><span class="data-value">320xxxxxxxxxxxxx</span></div>
+                    <div class="data-item"><span class="data-label">Tanggal Lahir</span><span class="data-value">01 Mei 2023</span></div>
+                    <div class="data-item"><span class="data-label">Nomor JKN</span><span class="data-value">0001234567890</span></div>
+                    <div class="data-item"><span class="data-label">Anak ke</span><span class="data-value">1</span></div>
+                    <div class="data-item"><span class="data-label">Golongan Darah</span><span class="data-value">A+</span></div>
+                    <div class="data-item"><span class="data-label">No. Registrasi Kohort</span><span class="data-value">REG-2023-05-001</span></div>
+                </div>
+            </section>
+            <!-- Sisa section card... -->
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2024 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+    
+    <!-- === MODAL UNTUK QR CODE (TAMBAHAN BARU) === -->
+    <div id="qrModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content glass-morphism">
+            <span id="closeModal" class="modal-close">×</span>
+            <h2>Ringkasan Kesehatan Anak</h2>
+            <p>Tunjukkan kode QR ini kepada petugas kesehatan di Posyandu.</p>
+            <div class="qr-code-container">
+                <canvas id="qrCanvas"></canvas>
+            </div>
+            <div class="qr-data-preview">
+                <strong>Nama:</strong> Arka Putra<br>
+                <strong>Tgl Lahir:</strong> 01 Mei 2023<br>
+                <strong>Gol. Darah:</strong> A+<br>
+                <strong>JKN:</strong> 0001234567890
+            </div>
+        </div>
+    </div>
+    
+    <!-- CDN untuk QR Code Generator (TAMBAHAN BARU) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1/build/qrcode.min.js"></script>
+
+    <!-- Skrip lama -->
+    <script src="script.js"></script>
+    <script src="profil.js"></script>
+</body>
+</html>

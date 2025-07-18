@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telekonsultasi - Sahabat Balita</title>
+    
+    <!-- Google Fonts & Global CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="konsultasi.css">
+</head>
+<body>
+    <div class="background-texture">
+        <header class="main-header glass-morphism">
+		<div class="header-content">
+        		<a href="dashboard.html" class="logo-container">
+            			<img src="https://i.imgur.com/UzYjB54.png" alt="Logo Sahabat Balita" class="logo">
+            			<span>Sahabat Balita</span>
+        		</a>
+        		<nav class="main-nav">
+            			<ul>
+                			<li><a href="dashboard.html">Dashboard</a></li>
+                			<li><a href="profil.html">Profil Anak</a></li>
+               				<li><a href="perkembangan.html">Pertumbuhan</a></li>
+                			<li><a href="imunisasi.html">Imunisasi</a></li>
+                			<li><a href="panduan.html">Panduan</a></li>
+                			<li><a href="konsultasi.html">Konsultasi</a></li>
+            			</ul>
+        		</nav>
+        		<div class="header-right">
+            			<a href="bita.html" class="bita-link">
+                <span>Bita (AI)</span>
+            			</a>
+            			<img src="https://i.imgur.com/4J14Yg1.png" alt="Foto Profil" class="profile-pic">
+            			<button id="hamburger-btn" class="hamburger-btn">
+                			<span></span>
+                			<span></span>
+                			<span></span>
+            			</button>
+        		</div>
+    		</div>
+		<!-- Menu Mobile -->
+    		<div id="mobile-nav" class="mobile-nav">
+        		<a href="dashboard.html">Dashboard</a>
+        		<a href="profil.html">Profil Anak</a>
+        		<a href="perkembangan.html">Pertumbuhan</a>
+        		<a href="imunisasi.html">Imunisasi</a>
+        		<a href="panduan.html">Panduan</a>
+        		<a href="konsultasi.html">Konsultasi</a>
+        		<a href="bita.html" class="bita-mobile-link">Tanya Bita (AI)</a>
+    		</div>
+	</header>
+        <main class="consultation-main">
+            <div class="page-header">
+                <h1>Hubungi Bidan Kami</h1>
+                <p>Dapatkan jawaban dan ketenangan dari para ahli terpercaya kami.</p>
+            </div>
+
+            <div class="bidan-list-container glass-morphism">
+                <!-- Kartu Bidan 1 (Online) -->
+                <div class="bidan-card">
+                    <img src="https://i.imgur.com/TUh2d2E.png" alt="Foto Bidan Ani" class="bidan-photo">
+                    <div class="bidan-info">
+                        <h3>Bidan Ani, Amd.Keb.</h3>
+                        <p>Spesialis Kesehatan Ibu & Anak</p>
+                        <div class="status-container">
+                            <span class="status-dot online"></span> Online
+                        </div>
+                    </div>
+                    <button class="btn-chat">Mulai Chat</button>
+                </div>
+
+                <!-- Kartu Bidan 2 (Offline) -->
+                <div class="bidan-card">
+                    <img src="https://i.imgur.com/8m5qCST.png" alt="Foto Bidan Rina" class="bidan-photo">
+                    <div class="bidan-info">
+                        <h3>Bidan Rina, S.Tr.Keb.</h3>
+                        <p>Konselor Laktasi</p>
+                        <div class="status-container">
+                            <span class="status-dot offline"></span> Offline
+                        </div>
+                    </div>
+                    <button class="btn-chat">Buat Janji Temu</button>
+                </div>
+
+                <!-- Kartu Bidan 3 (Offline & Sibuk) -->
+                 <div class="bidan-card">
+                    <img src="https://i.imgur.com/nJ52wnd.png" alt="Foto Bidan Citra" class="bidan-photo">
+                    <div class="bidan-info">
+                        <h3>Bidan Citra, Amd.Keb.</h3>
+                        <p>Ahli MPASI & Gizi Balita</p>
+                        <div class="status-container">
+                            <span class="status-dot offline"></span> Jadwal Penuh
+                        </div>
+                    </div>
+                    <button class="btn-chat" disabled>Tidak Tersedia</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2024 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="konsultasi.js"></script>
+</body>
+</html>

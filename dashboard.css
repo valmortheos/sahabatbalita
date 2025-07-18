@@ -1,0 +1,69 @@
+/* dashboard.css - Page-Specific Styles (UPDATED) */
+
+/* Main Content */
+.dashboard-main {
+    padding: 10px 20px 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    grid-template-areas:
+        "profile schedule"
+        "growth growth"
+        "notification notification";
+}
+
+.dashboard-card {
+    padding: 25px;
+}
+
+/* Specific Card Styling */
+.profile-card { grid-area: profile; }
+.schedule-card { grid-area: schedule; }
+.growth-chart-card { grid-area: growth; }
+.notification-card { grid-area: notification; }
+
+.profile-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.child-photo { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--secondary-color); }
+.child-name { font-size: 1.8rem; margin-bottom: 0; }
+.child-age { font-size: 1rem; color: var(--text-light); }
+.gender-tag { padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; color: white; }
+.gender-tag.boy { background-color: var(--accent-boy); }
+.gender-tag.girl { background-color: var(--accent-girl); }
+.btn-profile { display: block; width: 100%; text-align: center; background: var(--accent-boy); color: white; padding: 10px; border-radius: 8px; margin-top: 20px; transition: background 0.3s; }
+.btn-profile:hover { background: #648c8d; text-decoration: none; }
+
+.schedule-card h3, .growth-chart-card h3, .notification-card h3 { margin-bottom: 20px; font-weight: 600; }
+.schedule-list { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+.schedule-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-glass); }
+.schedule-item:last-child { border-bottom: none; }
+.schedule-date { font-weight: 600; }
+.schedule-item.upcoming .schedule-title { color: var(--warning-color); }
+.schedule-item.done .schedule-title { color: var(--success-color); text-decoration: line-through; }
+
+.chart-container { position: relative; height: 350px; }
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-areas:
+            "profile profile"
+            "schedule schedule"
+            "growth growth"
+            "notification notification";
+    }
+}
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "profile"
+            "schedule"
+            "growth"
+            "notification";
+    }
+}
