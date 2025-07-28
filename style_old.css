@@ -1,0 +1,165 @@
+/* style.css - Global Stylesheet (UPDATED) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #FAF8F5;
+  --secondary-color: #D1C1A5;
+  --accent-boy: #7A9E9F;
+  --accent-girl: #E8D0C4;
+  --text-color: #333333;
+  --text-light: #5c5c5c;
+  --background-glass: rgba(255, 255, 255, 0.35);
+  --border-glass: rgba(255, 255, 255, 0.2);
+  --shadow-color: rgba(122, 158, 159, 0.37);
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  --danger-color: #F44336;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.background-texture { background-color: var(--primary-color); min-height: 100vh; }
+
+.glass-morphism {
+  background: var(--background-glass);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px;
+  border: 1px solid var(--border-glass);
+}
+
+a { color: var(--accent-boy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* == GLOBAL HEADER STYLES == */
+.main-header {
+    position: sticky;
+    top: 10px;
+    margin: 0 20px 20px;
+    z-index: 1000;
+    border-radius: 50px;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+.logo-container .logo { width: 40px; height: 40px; }
+.main-nav ul { list-style: none; display: flex; gap: 25px; }
+.main-nav a { color: var(--text-light); font-weight: 400; transition: color 0.3s; }
+.main-nav a.active, .main-nav a:hover { color: var(--accent-boy); font-weight: 600; text-decoration: none; }
+.user-menu { display: flex; align-items: center; gap: 15px; }
+.user-menu .profile-pic { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--accent-boy); }
+
+/* == GLOBAL FOOTER STYLES == */
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Responsive Header */
+@media (max-width: 992px) {
+    .main-nav { display: none; } /* Simplifikasi untuk mobile, bisa diganti hamburger menu */
+}
+@media (max-width: 768px) {
+    .header-content { padding: 10px 15px; }
+}
+
+/* style.css - TAMBAHAN UNTUK RESPONSIVITAS */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bita-link span {
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.bita-link:hover span {
+    color: var(--accent-boy);
+}
+
+.hamburger-btn {
+    display: none; /* Sembunyi di desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburger-btn span {
+    width: 24px;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s linear;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+.mobile-nav a {
+    padding: 15px 20px;
+    text-align: center;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-glass);
+}
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+.bita-mobile-link {
+    background: var(--accent-girl);
+    font-weight: 600;
+}
+
+
+/* Tampilkan hamburger di layar kecil */
+@media (max-width: 992px) {
+    .main-nav { display: none; }
+    .hamburger-btn { display: flex; }
+}
+
+@media (max-width: 768px) {
+    .bita-link span { display: none; } /* Sembunyikan teks Bita di mobile */
+}
