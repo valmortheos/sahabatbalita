@@ -19,7 +19,7 @@
         <header class="main-header glass-morphism">
             <div class="header-content">
                 <a href="dashboard.html" class="logo-container">
-                    <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/Sahabat_Balita_bfkzqt.png" alt="Logo Sahabat Balita" class="logo">
+                    <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/v1722668406/Sahabat_Balita_bfkzqt.png" alt="Logo Sahabat Balita" class="logo">
                     <span>Sahabat Balita</span>
                 </a>
                 <nav class="main-nav">
@@ -35,9 +35,9 @@
                 <div class="header-right">
                     <a href="bita.html" class="bita-link">
                         <span class="bita-text">Tanya Bita (AI)</span>
-                        <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/artificial-intelligence_prynkp.png" alt="Bita AI Icon" class="bita-icon">
+                        <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/v1722668406/artificial-intelligence_prynkp.png" alt="Bita AI Icon" class="bita-icon">
                     </a>
-                    <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/v1722668407/user_profile_placeholder.png" alt="Foto Profil Pengguna" class="profile-pic">
+                    <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/v1722670553/default_profile_pic.png" alt="Foto Profil Pengguna" class="profile-pic">
                     <button id="hamburger-btn" class="hamburger-btn">
                         <span></span>
                         <span></span>
@@ -62,7 +62,7 @@
                 <!-- Widget: Profil Anak -->
                 <div class="dashboard-card profile-card glass-morphism">
                     <div class="profile-header">
-                        <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/babyboy_za8pzk.png" alt="Foto Anak" class="child-photo">
+                        <img src="https://res.cloudinary.com/dh7kxauhn/image/upload/v1722668406/babyboy_za8pzk.png" alt="Foto Anak" class="child-photo">
                         <div class="profile-info">
                             <h2 class="child-name">Arka Putra</h2>
                             <p class="child-age">1 tahun 2 bulan</p>
@@ -119,8 +119,18 @@
     <!-- CDN for Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Global & Page-Specific JS -->
-    <script src="script.js"></script>
+    <!-- Dummy script.js jika belum ada -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            hamburgerBtn.addEventListener('click', function() {
+                const isDisplayed = mobileNav.style.display === 'flex';
+                mobileNav.style.display = isDisplayed ? 'none' : 'flex';
+            });
+        });
+    </script>
     <script src="dashboard.js"></script>
 </body>
 </html>
