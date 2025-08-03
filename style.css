@@ -87,7 +87,7 @@ a:hover { text-decoration: underline; }
     .header-content { padding: 10px 15px; }
 }
 
-#profile-pic {
+.profile-pic {
   width: 10%;
   height: 10%;
 }
@@ -169,3 +169,4 @@ a:hover { text-decoration: underline; }
     .bita-link span { display: none; } /* Sembunyikan teks Bita di mobile */
 
 }
+
