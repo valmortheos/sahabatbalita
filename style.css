@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 .main-header {
     position: sticky;
     top: 10px;
-    margin: 0 20px 20px;
+    margin: 10px 20px 20px;
     z-index: 1000;
     border-radius: 50px;
 }
@@ -63,12 +63,53 @@ a:hover { text-decoration: underline; }
     font-size: 1.2rem;
     color: var(--text-color);
 }
+.logo-container:hover {
+    text-decoration: none;
+}
 .logo-container .logo { width: 40px; height: 40px; }
+
 .main-nav ul { list-style: none; display: flex; gap: 25px; }
-.main-nav a { color: var(--text-light); font-weight: 400; transition: color 0.3s; }
-.main-nav a.active, .main-nav a:hover { color: var(--accent-boy); font-weight: 600; text-decoration: none; }
-.user-menu { display: flex; align-items: center; gap: 15px; }
-.user-menu .profile-pic { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--accent-boy); }
+.main-nav a {
+    color: var(--text-light);
+    font-weight: 400;
+    transition: color 0.3s;
+    white-space: nowrap; /* Mencegah "Profil Anak" turun baris */
+}
+.main-nav a.active, .main-nav a:hover {
+    color: var(--accent-boy);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bita-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+.bita-link:hover {
+    text-decoration: none;
+}
+.bita-link:hover .bita-text {
+    color: var(--accent-boy);
+}
+.bita-icon {
+    width: 40px;
+    height: 40px;
+}
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-boy);
+    cursor: pointer;
+}
 
 /* == GLOBAL FOOTER STYLES == */
 .main-footer {
@@ -79,36 +120,9 @@ a:hover { text-decoration: underline; }
     color: var(--text-light);
 }
 
-/* Responsive Header */
-@media (max-width: 992px) {
-    .main-nav { display: none; } /* Simplifikasi untuk mobile, bisa diganti hamburger menu */
-}
-@media (max-width: 768px) {
-    .header-content { padding: 10px 15px; }
-}
+/* == RESPONSIVE HEADER == */
 
-.profile-pic {
-  width: 10%;
-  height: 10%;
-}
-
-/* style.css - TAMBAHAN UNTUK RESPONSIVITAS */
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.bita-link span {
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.bita-link:hover span {
-    color: var(--accent-boy);
-}
-
+/* Hamburger Menu Styling */
 .hamburger-btn {
     display: none; /* Sembunyi di desktop */
     flex-direction: column;
@@ -119,9 +133,8 @@ a:hover { text-decoration: underline; }
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 10;
+    z-index: 1010;
 }
-
 .hamburger-btn span {
     width: 24px;
     height: 3px;
@@ -130,43 +143,40 @@ a:hover { text-decoration: underline; }
     transition: all 0.3s linear;
 }
 
+/* Mobile Navigation Panel */
 .mobile-nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: hidden;
+    /* Akan dikontrol oleh JS untuk muncul/hilang */
 }
-
 .mobile-nav a {
-    padding: 15px 20px;
+    padding: 15px 25px;
     text-align: center;
     color: var(--text-color);
     border-bottom: 1px solid var(--border-glass);
 }
-.mobile-nav a:last-child {
-    border-bottom: none;
-}
+.mobile-nav a:last-child { border-bottom: none; }
 .bita-mobile-link {
-    background: var(--accent-girl);
+    background-color: var(--accent-girl);
     font-weight: 600;
 }
 
 
-/* Tampilkan hamburger di layar kecil */
+/* Media Queries for Responsiveness */
 @media (max-width: 992px) {
     .main-nav { display: none; }
     .hamburger-btn { display: flex; }
+    .bita-link .bita-text { display: none; } /* Sembunyikan teks Bita di tablet */
+    .header-right { gap: 15px; }
 }
 
 @media (max-width: 768px) {
-    .bita-link span { display: none; } /* Sembunyikan teks Bita di mobile */
-
+    .header-content { padding: 10px 20px; }
+    .logo-container span { display: none; } /* Sembunyikan teks logo di mobile */
 }
-
