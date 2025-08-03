@@ -87,6 +87,11 @@ a:hover { text-decoration: underline; }
     .header-content { padding: 10px 15px; }
 }
 
+#profile-pic {
+  width: 10%;
+  height: 10%;
+}
+
 /* style.css - TAMBAHAN UNTUK RESPONSIVITAS */
 
 .header-right {
@@ -162,4 +167,5 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
     .bita-link span { display: none; } /* Sembunyikan teks Bita di mobile */
+
 }
