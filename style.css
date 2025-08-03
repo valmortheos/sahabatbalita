@@ -1,4 +1,4 @@
-/* style.css - Global Stylesheet (FINAL FIXED) */
+/* style.css - Global Stylesheet (UPDATED) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 .main-header {
     position: sticky;
     top: 10px;
-    margin: 10px 20px 20px;
+    margin: 0 20px 20px;
     z-index: 1000;
     border-radius: 50px;
 }
@@ -51,61 +51,24 @@ a:hover { text-decoration: underline; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 25px;
+    padding: 10px 30px;
     max-width: 1400px;
     margin: 0 auto;
 }
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-weight: 600;
     font-size: 1.2rem;
     color: var(--text-color);
 }
-.logo-container:hover { text-decoration: none; }
-.logo-container .logo { width: 45px; height: 45px; }
-
-.main-nav ul { list-style: none; display: flex; gap: 28px; }
-.main-nav a {
-    color: var(--text-light);
-    font-weight: 400;
-    transition: color 0.3s;
-    white-space: nowrap;
-}
-.main-nav a.active, .main-nav a:hover {
-    color: var(--accent-boy);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.bita-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-.bita-link:hover { text-decoration: none; }
-.bita-link:hover .bita-text { color: var(--accent-boy); }
-.bita-icon {
-    width: 40px;  /* UKURAN TETAP */
-    height: 40px; /* UKURAN TETAP */
-}
-.profile-pic {
-    width: 48px;  /* UKURAN TETAP */
-    height: 48px; /* UKURAN TETAP */
-    border-radius: 50%;
-    border: 2px solid var(--accent-boy);
-    cursor: pointer;
-    object-fit: cover; /* Memastikan gambar tidak gepeng */
-}
+.logo-container .logo { width: 40px; height: 40px; }
+.main-nav ul { list-style: none; display: flex; gap: 25px; }
+.main-nav a { color: var(--text-light); font-weight: 400; transition: color 0.3s; }
+.main-nav a.active, .main-nav a:hover { color: var(--accent-boy); font-weight: 600; text-decoration: none; }
+.user-menu { display: flex; align-items: center; gap: 15px; }
+.user-menu .profile-pic { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--accent-boy); }
 
 /* == GLOBAL FOOTER STYLES == */
 .main-footer {
@@ -116,9 +79,38 @@ a:hover { text-decoration: underline; }
     color: var(--text-light);
 }
 
-/* == RESPONSIVE HEADER == */
+/* Responsive Header */
+@media (max-width: 992px) {
+    .main-nav { display: none; } /* Simplifikasi untuk mobile, bisa diganti hamburger menu */
+}
+@media (max-width: 768px) {
+    .header-content { padding: 10px 15px; }
+}
+
+.profile-pic {
+  width: 10%;
+  height: 10%;
+}
+
+/* style.css - TAMBAHAN UNTUK RESPONSIVITAS */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bita-link span {
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.bita-link:hover span {
+    color: var(--accent-boy);
+}
+
 .hamburger-btn {
-    display: none;
+    display: none; /* Sembunyi di desktop */
     flex-direction: column;
     justify-content: space-around;
     width: 24px;
@@ -127,50 +119,54 @@ a:hover { text-decoration: underline; }
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1010;
+    z-index: 10;
 }
+
 .hamburger-btn span {
     width: 24px;
     height: 3px;
     background: var(--text-color);
     border-radius: 5px;
+    transition: all 0.3s linear;
 }
 
 .mobile-nav {
-    display: none; /* Diubah ke 'flex' oleh JS */
+    display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: calc(100% - 15px); /* Posisi tepat di bawah header */
+    top: 100%;
     left: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
+
 .mobile-nav a {
-    padding: 15px 25px;
+    padding: 15px 20px;
     text-align: center;
     color: var(--text-color);
     border-bottom: 1px solid var(--border-glass);
 }
-.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
 .bita-mobile-link {
-    background-color: var(--accent-girl);
+    background: var(--accent-girl);
     font-weight: 600;
 }
 
-/* Tampilkan hamburger & sembunyikan nav utama di layar kecil */
+
+/* Tampilkan hamburger di layar kecil */
 @media (max-width: 992px) {
     .main-nav { display: none; }
     .hamburger-btn { display: flex; }
-    .bita-text { display: none; } /* Sembunyikan teks "Tanya Bita (AI)" */
-    .header-right { gap: 15px; }
 }
 
-/* Optimasi untuk layar sangat kecil */
 @media (max-width: 768px) {
-    .header-content { padding: 10px 20px; }
+    .bita-link span { display: none; } /* Sembunyikan teks Bita di mobile */
+
 }
+
