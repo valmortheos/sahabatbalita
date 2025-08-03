@@ -1,0 +1,146 @@
+/* panduan.css - Page-Specific Styles */
+
+.guide-main {
+    padding: 10px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.search-filter-container {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-glass);
+    background: transparent;
+    color: var(--text-light);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-boy);
+    color: white;
+    border-color: var(--accent-boy);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: var(--background-glass);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    border: 1px solid var(--border-glass);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.article-card .category-tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.category-tag.nutrisi { background-color: #f5a623; /* Oranye */ }
+.category-tag.stimulasi { background-color: #4a90e2; /* Biru */ }
+.category-tag.kesehatan { background-color: var(--danger-color); /* Merah */ }
+
+.article-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Make title take available space */
+}
+
+.article-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.not-found-message {
+    text-align: center;
+    padding: 50px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 500px) {
+  .guide-main {
+    padding: 8px;
+  }
+  .filter-btn {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .page-header h1 {
+    font-size: 1.2rem;
+  }
+  .page-header p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk & Daftar - Sahabat Balita</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="background-container">
+        <main class="login-container">
+            <div class="login-box glass-morphism">
+                <header class="login-header">
+                    <a href="index.html"><img src="assets/logo.png" alt="Logo Sahabat Balita" class="logo"></a>
+                    <h1 id="form-title">Selamat Datang Kembali</h1>
+                    <p id="form-subtitle">Masuk untuk melanjutkan ke dashboard Anda.</p>
+                </header>
+
+                <!-- FORM LOGIN -->
+                <form id="loginForm" action="dashboard.html">
+                    <div class="input-group">
+                        <label for="username">Email</label>
+                        <input type="email" id="username" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-login">Masuk</button>
+                    <p class="toggle-form-text">Belum punya akun? <a href="#" id="showRegister">Daftar di sini</a></p>
+                </form>
+
+                <!-- FORM REGISTRASI (disembunyikan secara default) -->
+                <form id="registerForm" action="dashboard.html" style="display: none;">
+                     <div class="input-group">
+                        <label for="reg-name">Nama Lengkap Ibu</label>
+                        <input type="text" id="reg-name" name="reg-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" name="reg-email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="reg-password">Buat Kata Sandi</label>
+                        <input type="password" id="reg-password" name="reg-password" required>
+                    </div>
+                    <button type="submit" class="btn-login">Daftar</button>
+                    <p class="toggle-form-text">Sudah punya akun? <a href="#" id="showLogin">Masuk di sini</a></p>
+                </form>
+
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

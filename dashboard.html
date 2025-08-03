@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sahabat Balita</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global & Page-Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="background-texture">
+        <header class="main-header glass-morphism">
+		<div class="header-content">
+        		<a href="dashboard.html" class="logo-container">
+            			<img src="assets/logo.png" alt="Logo Sahabat Balita" class="logo">
+            			<span>Sahabat Balita</span>
+        		</a>
+        		<nav class="main-nav">
+            			<ul>
+                			<li><a href="dashboard.html">Dashboard</a></li>
+                			<li><a href="profil.html">Profil Anak</a></li>
+               				<li><a href="perkembangan.html">Pertumbuhan</a></li>
+                			<li><a href="imunisasi.html">Imunisasi</a></li>
+                			<li><a href="panduan.html">Panduan</a></li>
+                			<li><a href="konsultasi.html">Konsultasi</a></li>
+            			</ul>
+        		</nav>
+        		<div class="header-right">
+            			<a href="bita.html" class="bita-link">
+                <span>Bita (AI)</span>
+            			</a>
+            			<img src="assets/ai.png" alt="Foto Profil" class="profile-pic">
+            			<button id="hamburger-btn" class="hamburger-btn">
+                			<span></span>
+                			<span></span>
+                			<span></span>
+            			</button>
+        		</div>
+    		</div>
+    		<!-- Menu Mobile -->
+    		<div id="mobile-nav" class="mobile-nav">
+        		<a href="dashboard.html">Dashboard</a>
+        		<a href="profil.html">Profil Anak</a>
+        		<a href="perkembangan.html">Pertumbuhan</a>
+        		<a href="imunisasi.html">Imunisasi</a>
+        		<a href="panduan.html">Panduan</a>
+        		<a href="konsultasi.html">Konsultasi</a>
+        		<a href="bita.html" class="bita-mobile-link">Tanya Bita (AI)</a>
+    		</div>
+	</header>
+        <main class="dashboard-main">
+            <div class="dashboard-grid">
+                <!-- Widget: Profil Anak -->
+                <div class="dashboard-card profile-card glass-morphism">
+                    <div class="profile-header">
+                        <img src="assets/babyboy.png" alt="Foto Anak" class="child-photo">
+                        <div class="profile-info">
+                            <h2 class="child-name">Arka Putra</h2>
+                            <p class="child-age">1 tahun 2 bulan</p>
+                            <span class="gender-tag boy">Laki-laki</span>
+                        </div>
+                    </div>
+                    <div class="profile-summary">
+                        <p><strong>NIK:</strong> 320************1</p>
+                        <p><strong>Gol. Darah:</strong> A+</p>
+                    </div>
+                    <a href="profil.html" class="btn-profile">Lihat Profil Lengkap</a>
+                </div>
+
+                <!-- Widget: Jadwal Terdekat -->
+                <div class="dashboard-card schedule-card glass-morphism">
+                    <h3>Jadwal Terdekat</h3>
+                    <ul class="schedule-list">
+                        <li class="schedule-item upcoming">
+                            <span class="schedule-date">15 Jul 2024</span>
+                            <span class="schedule-title">Imunisasi DPT-HB-Hib 4</span>
+                        </li>
+                        <li class="schedule-item upcoming">
+                            <span class="schedule-date">28 Jul 2024</span>
+                            <span class="schedule-title">Konsultasi Bidan</span>
+                        </li>
+                        <li class="schedule-item done">
+                            <span class="schedule-date">10 Jun 2024</span>
+                            <span class="schedule-title">Imunisasi Campak-Rubela</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Widget: Grafik Pertumbuhan -->
+                <div class="dashboard-card growth-chart-card glass-morphism">
+                    <h3>Grafik Pertumbuhan (Berat Badan vs Usia)</h3>
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Widget: Notifikasi -->
+                <div class="dashboard-card notification-card glass-morphism">
+                     <h3>Notifikasi Penting</h3>
+                     <p>Jangan lupa untuk melakukan stimulasi motorik kasar minggu ini. <a href="panduan.html">Lihat panduan</a>.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2025 Sahabat Balita. Transformasi Digital Buku KIA.</p>
+        </footer>
+    </div>
+    
+    <!-- CDN for Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Global & Page-Specific JS -->
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
