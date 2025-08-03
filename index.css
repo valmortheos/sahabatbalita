@@ -136,4 +136,28 @@
   .page-header p {
     font-size: 1rem;
   }
+
+}
+
+@media (max-width: 400px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .feature-card {
+    padding: 10px;
+  }
+}
+
+.feature-card {
+    padding: 30px;
+    text-align: left;
+}
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
 }
