@@ -63,4 +63,10 @@
     padding: 10px 15px;
     border-radius: 8px;
     text-align: left;
+
+}
+
+.child-photo-large {
+    width: 10%;
+    height: 10%;
 }
